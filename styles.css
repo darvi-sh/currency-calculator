@@ -1,0 +1,178 @@
+/* -------------------------------------------------------
+Variable font.
+Usage:
+
+  html { font-family: 'Inter', sans-serif; }
+  @supports (font-variation-settings: normal) {
+    html { font-family: 'Inter var', sans-serif; }
+  }
+*/
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+  font-named-instance: "Regular";
+  src: url("assets/fonts/Inter-roman.var.woff2?v=3.15") format("woff2");
+}
+@font-face {
+  font-family: "Inter var";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: italic;
+  font-named-instance: "Italic";
+  src: url("assets/fonts/Inter-italic.var.woff2?v=3.15") format("woff2");
+}
+
+/* --------------------------------------------------------------------------
+[EXPERIMENTAL] Multi-axis, single variable font.
+
+Slant axis is not yet widely supported (as of February 2019) and thus this
+multi-axis single variable font is opt-in rather than the default.
+
+When using this, you will probably need to set font-variation-settings
+explicitly, e.g.
+
+  * { font-variation-settings: "slnt" 0deg }
+  .italic { font-variation-settings: "slnt" 10deg }
+
+*/
+@font-face {
+  font-family: "Inter var experimental";
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: oblique 0deg 10deg;
+  src: url("assets/fonts/Inter.var.woff2?v=3.15") format("woff2");
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.a11y-text {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+body {
+  font-family: "Inter var experimental";
+  margin: 0;
+}
+
+.app-title {
+  background: #29ceb5;
+  color: #ffffff;
+  font-size: 30px;
+  font-weight: bold;
+  padding-left: 50px;
+  padding: 100px 0 25px;
+  text-align: center;
+  margin: 0;
+}
+
+.form-wrapper {
+  background: lightgray;
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 1rem;
+}
+
+.form-wrapper form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-content: stretch;
+  width: 100%;
+}
+
+.form-wrapper p {
+  width: 100%;
+}
+
+.currency_converter_form .group-left,
+.currency_converter_form .group-right {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.group-left {
+  flex-grow: 1;
+  flex-basis: 120px;
+}
+
+.group-right {
+  flex-shrink: 1;
+}
+
+.currency_converter_form input[name="amount"] {
+  width: 100%;
+}
+
+.currency_converter_form input[type="text"] {
+  border: 1px solid grey;
+  border-radius: 3px;
+  padding: 5px;
+  font-size: 16px;
+  margin-right: 15px;
+}
+
+.currency_converter_form label {
+  font-size: 14px;
+  padding: 5px 8px;
+  cursor: pointer;
+  transition: 100ms all linear;
+}
+
+.currency_converter_form input[type="radio"] {
+  /* accessible radio button */
+  /* please do not use display none or visibility hidden here */
+  opacity: 0;
+  position: absolute;
+}
+
+.currency_converter_form input[type="radio"]:checked + label {
+  background-image: linear-gradient(170deg, #29ceb5, teal);
+  background-color: #29ceb5;
+  border-radius: 3px;
+  filter: drop-shadow(#444 1px 1px);
+  color: white;
+}
+
+.currency_converter_form input[type="radio"]:active + label,
+.currency_converter_form input[type="radio"]:focus + label {
+  outline: 2px solid white;
+}
+
+.js-conversion_history {
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: black;
+  }
+
+  .app-title {
+    background: darkslategrey;
+  }
+
+  .form-wrapper {
+    background: dimgrey;
+    color: whitesmoke;
+  }
+
+  .currency_converter_form input[type="text"] {
+    background-color: #333;
+    color: white;
+  }
+}
+
+/* failed attempt
+@media (prefers-reduced-motion: reduce) {
+  .currency_converter_form label {
+    transition: none;
+  }
+}
+*/

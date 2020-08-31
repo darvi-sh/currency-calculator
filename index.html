@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Currency Converter</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main>
+      <h1 class="app-title">Stylight Currency Converter</h1>
+
+      <div class="form-wrapper">
+        <form action="./" class="js-currency_converter_form currency_converter_form">
+          <p>Calculate</p>
+          <div class="group-left">
+            <input type="text" name="amount" value="1.12" aria-label="amount" />
+          </div>
+          <div class="group-right" role="radiogroup" aria-labelledby="source_currency">
+            <span class="a11y-text" id="source_currency">Source Currency</span>
+            <input type="radio" name="source" value="EUR" id="source-eur" checked />
+            <label for="source-eur">&euro; EUR</label>
+            <input type="radio" name="source" value="USD" id="source-usd" />
+            <label for="source-usd">&dollar; USD</label>
+            <input type="radio" name="source" value="JPY" id="source-jpy" />
+            <label for="source-jpy">&yen; JPY</label>
+          </div>
+          <div class="group-left"><span>in</span></div>
+          <div class="group-right" role="radiogroup" aria-labelledby="target_currency">
+            <span class="a11y-text" id="target_currency">Target Currency</span>
+            <input type="radio" name="target" value="EUR" id="target-eur" />
+            <label for="target-eur">&euro; EUR</label>
+            <input type="radio" name="target" value="USD" id="target-usd" checked />
+            <label for="target-usd">&dollar; USD</label>
+            <input type="radio" name="target" value="JPY" id="target-jpy" />
+            <label for="target-jpy">&yen; JPY</label>
+          </div>
+        </form>
+        <br />
+        <div>That will be: <span class="js-result"></span></div>
+
+        <br />
+
+        <h2>Previous conversions:</h2>
+        <div class="js-conversion_history"></div>
+      </div>
+    </main>
+
+    <!-- Use the `axios` library for making Ajax requests. -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- Put your own JavaScript into this file. -->
+    <script src="scripts.js"></script>
+  </body>
+</html>
